@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Gestão de Produtos{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
+</head>
+<body>
+  {% if session.get('usuario') %}
+  <nav>
+    <a href="{{ url_for('listar') }}">Produtos</a> ·
+    <a href="{{ url_for('logout') }}">Sair ({{ session['usuario'] }})</a>
+  </nav>
+  {% endif %}
+  {% block conteudo %}{% endblock %}
+</body>
+</html>

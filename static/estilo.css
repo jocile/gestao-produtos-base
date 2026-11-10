@@ -1,0 +1,15 @@
+body { font-family: "Segoe UI", Arial, sans-serif; margin: 30px; background: #f8f9fa; }
+h1 { color: #0d6efd; }
+nav { margin-bottom: 20px; }
+form { background: white; padding: 20px; border-radius: 8px; max-width: 420px;
+       box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+label { display: block; margin-top: 12px; font-weight: bold; }
+input, select { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; }
+input[type="submit"], .botao { background: #0d6efd; color: white; border: none; font-weight: bold;
+       cursor: pointer; border-radius: 4px; padding: 10px 16px; text-decoration: none;
+       display: inline-block; width: auto; margin-top: 18px; }
+.erro { color: #dc3545; font-size: 0.9em; margin: 4px 0 0; }
+.ok { color: #146c43; background: #d1e7dd; padding: 10px; border-radius: 4px; }
+table { width: 100%; border-collapse: collapse; background: white; margin-top: 15px; }
+th, td { border: 1px solid #dee2e6; padding: 10px; text-align: left; }
+th { background: #0d6efd; color: white; }

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block titulo %}Novo produto{% endblock %}
+{% block conteudo %}
+<h1>Novo produto</h1>
+
+<form action="{{ url_for('cadastrar_produto') }}" method="post">
+  {% if 'geral' in erros %}<p class="erro">{{ erros['geral'] }}</p>{% endif %}
+
+  <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+
+  <label for="nome">Nome</label>
+  <input id="nome" type="text" name="nome" maxlength="100" required value="{{ valores.get('nome', '') }}">
+  {% if 'nome' in erros %}<p class="erro">{{ erros['nome'] }}</p>{% endif %}
+
+  <label for="preco">Preço (R$)</label>
+  <input id="preco" type="text" name="preco" inputmode="decimal" required placeholder="49,90"
+         value="{{ valores.get('preco', '') }}">
+  {% if 'preco' in erros %}<p class="erro">{{ erros['preco'] }}</p>{% endif %}
+
+  <label for="estoque">Estoque (unidades)</label>
+  <input id="estoque" type="number" name="estoque" min="0" step="1" required
+         value="{{ valores.get('estoque', '') }}">
+  {% if 'estoque' in erros %}<p class="erro">{{ erros['estoque'] }}</p>{% endif %}
+
+  <label for="id_categoria">Categoria</label>
+  <select id="id_categoria" name="id_categoria" required>
+    <option value="">Selecione...</option>
+    {% for c in categorias %}
+    <option value="{{ c['id_categoria'] }}"
+      {% if c['id_categoria']|string == valores.get('id_categoria', '') %}selected{% endif %}>
+      {{ c['nome_categoria'] }}
+    </option>
+    {% endfor %}
+  </select>
+  {% if 'id_categoria' in erros %}<p class="erro">{{ erros['id_categoria'] }}</p>{% endif %}
+
+  <input type="submit" value="Cadastrar produto">
+</form>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block titulo %}Produtos{% endblock %}
+{% block conteudo %}
+<h1>Produtos cadastrados</h1>
+
+{% if aviso %}<p class="ok">{{ aviso }}</p>{% endif %}
+
+<a class="botao" href="{{ url_for('exibir_formulario') }}">Novo produto</a>
+
+<table>
+  <tr>
+    <th>ID</th><th>Produto</th><th>Categoria</th><th>Preço</th><th>Estoque</th>
+  </tr>
+  {% for p in produtos %}
+  <tr>
+    <td>{{ p['id_produto'] }}</td>
+    <td>{{ p['nome'] }}</td>
+    <td>{{ p['nome_categoria'] }}</td>
+    <td>R$ {{ "%.2f"|format(p['preco']) }}</td>
+    <td>{{ p['estoque'] }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}

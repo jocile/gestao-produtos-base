@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block titulo %}Login{% endblock %}
+{% block conteudo %}
+<h1>Acesso restrito</h1>
+{% if mensagem %}<p class="erro">{{ mensagem }}</p>{% endif %}
+<form action="{{ url_for('processar_login') }}" method="post">
+  <label for="usuario">Usuário</label>
+  <input id="usuario" type="text" name="usuario" required autocomplete="username">
+
+  <label for="senha">Senha</label>
+  <input id="senha" type="password" name="senha" required autocomplete="current-password">
+
+  <input type="submit" value="Entrar">
+</form>
+{% endblock %}
